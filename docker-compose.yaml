@@ -30,10 +30,9 @@ services:
   redis:
     image: redis
     restart: always
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+    command: redis-server --requirepass 1234560987Isco@
     environment:
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-
+      - REDIS_PASSWORD=1234560987Isco@
   app:
     image: nextcloud:latest
     restart: unless-stopped
@@ -41,7 +40,7 @@ services:
       - nextcloud:/var/www/html
     environment:
       - MYSQL_HOST=db
-      - REDIS_HOST_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_HOST_PASSWORD=1234560987Isco@
     env_file:
       - db.env
     depends_on:
