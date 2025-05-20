@@ -5,7 +5,7 @@ services:
     image: tailscale/tailscale:latest
     hostname: nextcloud
     environment:
-      - TS_AUTHKEY=tskey-auth-kMA4c1ByW621CNTRL-qvJaMAGkS8NApnrM12ds7NZfWTF6QfbaZ
+      - TS_AUTHKEY=******
       - TS_SERVE_CONFIG=/config/nextcloud.json
       - TS_STATE_DIR=/var/lib/tailscale
     volumes:
@@ -30,9 +30,9 @@ services:
   redis:
     image: redis
     restart: always
-    command: redis-server --requirepass 1234560987Isco@
+    command: redis-server --requirepass ******
     environment:
-      - REDIS_PASSWORD=1234560987Isco@
+      - REDIS_PASSWORD=*****
   app:
     image: nextcloud:latest
     restart: unless-stopped
@@ -40,7 +40,7 @@ services:
       - nextcloud:/var/www/html
     environment:
       - MYSQL_HOST=db
-      - REDIS_HOST_PASSWORD=1234560987Isco@
+      - REDIS_HOST_PASSWORD=*********
     env_file:
       - db.env
     depends_on:
